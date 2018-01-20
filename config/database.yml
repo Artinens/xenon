@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: xenon_production
-  username: xenon
+  username: artinens 
   password: <%= ENV['XENON_DATABASE_PASSWORD'] %>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'project/index'
 
   root to: 'todos#index'
-
+  post '/' => 'todos#create'
   get 'todos/index'
 
   get 'todos/update'

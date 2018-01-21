@@ -1,24 +1,30 @@
 <h1>Задачи</h1>
+
  
 
-<ul>
- 
+
   <% @projects.each do |project| %>
   
-       <%= project.title %>
+ 
+      <h3><%= project.title.upcase %></h3>
+  
+
       
       
-	  
+<ul>  
 	  
 	  <% project.todos.each do |todo| %>
-
+<li>
 	  <%= todo.text %>
-  <% end %>
-	  
-	  
-      
-      
+</li>
 
   <% end %>
-
 </ul>
+<% end %>
+	  	  <h3> НОВАЯ ЗАДАЧА </h3>
+<div id="add-todo">+</div>
+<%= form_with scope: :todo, id: 'new-todo', local: true do |form| %>
+  <%= form.text_field :text, placeholder: 'Название задачи...' %><br>
+  <%= form.select :project_id, options_for_select(@projects.map {|p| [p.title, p.id]}) %><br>
+  <%= link_to 'ОТМЕНА', nil, id: 'cancel' %> <%= link_to 'ОК', nil, id: 'submit' %>
+<% end %>

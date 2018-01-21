@@ -12,3 +12,14 @@
 //
 //= require rails-ujs
 //= require_tree .
+
+$(document).ready(function () {
+    $("#add-todo").click(function () {
+        $('#new-todo').show();
+    });
+    $("#cancel").click(function () {
+        $('#new-todo').hide();
+    });
+    $('#new-todo').hide();
+});
+
